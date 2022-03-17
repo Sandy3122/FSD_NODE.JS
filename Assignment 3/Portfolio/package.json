@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "express": "^4.17.3",
+    "init": "^0.1.2",
+    "node": "^17.5.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Creating User Portfolio",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "S.sandeep",
+  "license": "ISC"
+}

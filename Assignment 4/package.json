@@ -1,0 +1,19 @@
+{
+  "name": "login_form",
+  "version": "1.0.0",
+  "description": "Login Form With Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "S.sandeep",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "node": "^17.5.0",
+    "path": "^0.12.7",
+    "session": "^0.1.0"
+  }
+}

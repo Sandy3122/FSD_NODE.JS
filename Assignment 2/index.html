@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Recipe Finder</title>
+
+        <style>
+
+            body
+            {
+                background-color: rgb(172, 240, 240);
+            }
+
+            #container
+            {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            h3
+            {
+                text-align: center;
+                font-size: 50px;
+                color: rgb(252, 0, 13);
+            }
+
+            #RecipeName{
+                text-align: center;
+                align-items: center;
+                border-radius:10px;
+                justify-content: center;
+                font-size: 20px;
+                color:rgb(32, 15, 15);
+                padding: 10px;
+            }
+
+            #button
+            {
+                width:150px;
+                padding:15px;
+                background-color: rgb(81, 84, 241);
+                color:white;
+                border-radius: 10px;
+                border:none;
+                outline: none;
+            }
+
+            #button:hover
+            {
+                background-color: rgb(100, 233, 88);
+            }
+
+            #main
+            {
+                padding-left:37%;
+            }
+
+            #h3
+            {
+                font-size: 30px;
+                text-align:left;
+            }
+
+        </style>
+
+    </head>
+    <body>
+    <div id="container">
+        <h3>Enter Recipe Name</h3>
+        <h2>Menu:- 1.Chapati,  2.Dosa,  3.Badam-Milk,   4.Real-Mojito</h2>
+
+        <input id="RecipeName" type = "text" placeholder="Enter Recipe Name " ><br><br>        
+        <button id="button" onclick="getRecipeDetails()">Submit</button><br>
+    </div>
+    
+    <div id="main">
+        <h3 id="h3">Recipe Details :</h3>
+        <h4 id="getRecipeName"></h4>
+        <h4 id="getRecipeIngredients"></h4>
+        <h4 id="getRecipeProcedure"></h4>
+    </div>
+
+
+
+    </body>
+
+    <script>
+
+        async function getRecipeDetails()
+        {
+
+            var inputRecipeName = document.getElementById('RecipeName').value;
+
+            if(inputRecipeName.length == 0)
+                {
+                    alert("Please Enter The Recipe Names")
+                }
+
+            else
+                {
+                    var getData = JSON.stringify({name:inputRecipeName,});
+
+                    var res = await fetch('/recipesData', 
+
+                        {
+                            method: "POST",
+                            headers : { 'content-type' : 'application/json' },
+                            body:getData,
+
+                        });
+
+                    if(res.status == 500) //Server Error Response
+                        {
+                            alert("Please Enter Recipes, Which Are Mentioned In Menu")
+                        }
+
+                    else if(res.status == 200) //Success Status
+                        {
+                            res.json().then(getData=>
+                            {
+                                document.getElementById('getRecipeName').innerHTML = getData.Name;
+                                document.getElementById('getRecipeIngredients').innerHTML = getData.Ingredients;
+                                document.getElementById('getRecipeProcedure').innerHTML = getData.Procedure;
+                            })
+                        } 
+                }
+        }
+
+    </script>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 4</title>
+</head>
+<body>
+
+    <div class="main">
+        <h1>This Is Our Home Our Page</h1><br><br><br><br>
+
+        <a href="/logout"><button class="button" type="submit"><p>Logout</p></button></a>
+</div>
+
+</body>
+
+<style>
+    body
+    {
+        background-image: url('https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+        background-repeat:no-repeat;
+        background-size:cover;
+        background-attachment: fixed;
+        background-position:center;
+    }
+    .main
+    {
+        text-align:center;
+        margin-top:20em;
+    }
+    h1
+    {
+        font-size:4em;
+        color:rgb(0, 67, 65);
+        text-decoration:underline dashed rgb(0, 67, 65);
+    }
+    .button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: rgb(71,121,108);
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 22px;
+        width: 200px;
+        transition: all 0.5s ease;
+        cursor: pointer;
+        opacity: 0.7;
+        margin-top: 6em;
+      }
+      
+      .button p {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s ease;
+      }
+      
+      .button p:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+      
+      .button:hover p {
+        padding-right: 30px;
+      }
+      
+      .button:hover p:after , .button:hover {
+        opacity: 1;
+      }
+    
+</style>
+
+</html>
