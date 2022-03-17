@@ -96,14 +96,14 @@
 
             if(inputRecipeName.length == 0)
                 {
-                    alert("Please Enter The Recipe Names")
+                    alert("Please Enter The Recipe Name")
                 }
 
             else
                 {
                     var getData = JSON.stringify({name:inputRecipeName,});
 
-                    var res = await fetch('/recipesData', 
+                    var res = await fetch('/recipesData',
 
                         {
                             method: "POST",
